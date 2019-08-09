@@ -1,28 +1,75 @@
-# AngularEsDashboard
+# LearningAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+创建项目
+```
+ng new {projectName}
+```
 
-## Development server
+安装依赖
+```
+npm install
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+启动服务
+```
+ng serve
+```
 
-## Code scaffolding
+创建组件
+```
+ng g component components/header
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+创建服务
+```
+ng g service services/storage
+```
 
-## Build
+### 双向数据引用 FormsModule
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BasicComponent } from './components/basic/basic.component';
+import { TwoWayDataBindingComponent } from './components/two-way-data-binding/two-way-data-binding.component';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    BasicComponent,
+    TwoWayDataBindingComponent
+  ],
+  imports: [
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-## Running unit tests
+## 路由切换页面
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+对应的组件显示到`<router-outlet></router-outlet>`标签中
 
-## Running end-to-end tests
+```
+http://localhost:4200/webpack-dev-server/page-a
+http://localhost:4200/webpack-dev-server/page-b
+http://localhost:4200/webpack-dev-server/page-c
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## build
 
-## Further help
+```
+ng build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# angular-es-dashboard
+> 生成dist目录，copy到[learning-angular-container](https://github.com/sillyhatxu/learning-angular-container)
