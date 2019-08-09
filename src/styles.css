@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"); */
+@import url("./assets/css/fonts.googleapis.css");
+@import url("./assets/css/material-dashboard.css");
+@import url("./assets/demo/demo.css");
