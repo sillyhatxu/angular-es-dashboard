@@ -2,11 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';/* PreloadAllModules 预加载策略 */
 import { HomeComponent } from './components/home/home.component'
 import { CustomPreloadingStrategyServiceService } from './services/custom-preloading-strategy-service.service';
+import { PreloadingComponent } from './components/preloading/preloading.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    data: { preload: false }
+  },
+  {
+    path: 'preloading',
+    component: PreloadingComponent,
     data: { preload: false }
   },
   {/* 默认路由 */

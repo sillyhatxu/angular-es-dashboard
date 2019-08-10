@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { environment } from '../../environments/environment';
-import { version } from 'punycode';
+import { Observable, of, throwError } from 'rxjs';
+import { EsVersion } from '../dto/EsVersion';
 
 @Injectable({
   providedIn: 'root'
@@ -20,39 +21,45 @@ export class ElasticsearchService {
   //         return res.json();
   //       });
   // }
-  version() {
-    console.log("version")
-    var url = environment.apiUrl + "/elasticsearch/version/" + environment.esScheme + "/" + environment.esUrl
-    this.http.get(url).subscribe(function (data: { data: any }) {
-      console.log(data)
-    }, function (err) {
-      console.error(err);
-    })
-    console.log("version end")
+
+  // const headers = new HttpHeaders()
+  //             .set("X-CustomHeader", "custom header value");
+
+  // getCharacters() { 
+  //    return this 
+  //           .http
+  //           .get(`${this.url}/characters`, {headers}); }
+
+  version(): Observable<EsVersion> {
+    const url = `${environment.apiUrl}/elasticsearch/version/${environment.esScheme}/${environment.esUrl}`;
+    return this.http.get<EsVersion>(url)
   }
 
-  health() {
-    var url = environment.apiUrl + "/elasticsearch/health/" + environment.esScheme + "/" + environment.esUrl
+  health(): any {
+    const url = `${environment.apiUrl}/elasticsearch/health/${environment.esScheme}/${environment.esUrl}`;
     this.http.get(url).subscribe(function (data: { data: any }) {
       console.log(data)
-    }, function (err) {
-      console.error(err);
-    })
-  }
-
-  clusterStats() {
-    var url = environment.apiUrl + "/elasticsearch/cluster-stats/" + environment.esScheme + "/" + environment.esUrl
-    this.http.get(url).subscribe(function (data: { data: any }) {
-      console.log(data)
+      return data
     }, function (err) {
       console.error(err);
     })
   }
 
-  indices() {
-    var url = environment.apiUrl + "/elasticsearch/indices/" + environment.esScheme + "/" + environment.esUrl
+  clusterStats(): any {
+    const url = `${environment.apiUrl}/elasticsearch/cluster-stats/${environment.esScheme}/${environment.esUrl}`;
     this.http.get(url).subscribe(function (data: { data: any }) {
       console.log(data)
+      return data
+    }, function (err) {
+      console.error(err);
+    })
+  }
+
+  indices(): any {
+    const url = `${environment.apiUrl}/elasticsearch/indices/${environment.esScheme}/${environment.esUrl}`;
+    this.http.get(url).subscribe(function (data: { data: any }) {
+      console.log(data)
+      return data
     }, function (err) {
       console.error(err);
     })

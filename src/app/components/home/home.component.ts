@@ -9,18 +9,15 @@ import { InitialService } from 'src/app/services/initial.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private elasticsearchService: ElasticsearchService, private initialService: InitialService) { }
+  public version: string
+  constructor() { }
 
   ngOnInit() {
-    console.log(1)
-    this.initialService.initialData()
-    console.log(2)
-    this.version()
-    console.log(3)
+
   }
 
-  version() {
-    console.log(this.elasticsearchService.version())
+  initialPage() {
+
   }
 
 

@@ -13,6 +13,7 @@ import { HeadComponent } from './components/head/head.component';
 import { FixedPluginComponent } from './components/fixed-plugin/fixed-plugin.component';
 import { CircularProgressBarComponent } from './components/circular-progress-bar/circular-progress-bar.component';
 import { CustomPreloadingStrategyServiceService } from './services/custom-preloading-strategy-service.service';
+import { PreloadingComponent } from './components/preloading/preloading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CustomPreloadingStrategyServiceService } from './services/custom-preloa
     SidebarComponent,
     HeadComponent,
     FixedPluginComponent,
-    CircularProgressBarComponent
+    CircularProgressBarComponent,
+    PreloadingComponent
   ],
   imports: [
     HttpClientModule,

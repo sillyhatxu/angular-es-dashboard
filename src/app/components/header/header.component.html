@@ -5,8 +5,11 @@
             <a class="navbar-brand" href="#pablo">Dashboard</a>
             <form class="navbar-form">
                 <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="127.0.0.1:9200">
-                    <button class="btn btn-primary btn-sm btn-round">
+                    <!-- <input type="text" [(ngModel)]="xxxxxxxxxxx" name="ttttt" /> -->
+                    <!-- <input type="text" class="form-control" placeholder="127.0.0.1:9200">{{xxxxxxxxxxx}} -->
+                    <input type="text" name="esUrl" class="form-control" placeholder="127.0.0.1:9200" value="{{esUrl}}"
+                        [(ngModel)]="esUrl">
+                    <button class="btn btn-primary btn-sm btn-round" (click)="connectES()">
                         <i class="material-icons">cached</i> CONNECT
                     </button>
                     <!-- <button type="submit" class="btn btn-white btn-round btn-just-icon">
