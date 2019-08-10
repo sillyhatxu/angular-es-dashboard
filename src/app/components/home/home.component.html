@@ -4,12 +4,12 @@
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
-                        <i class="material-icons">content_copy</i>
+                        <i class="material-icons">
+                            trending_up
+                        </i>
                     </div>
-                    <p class="card-category">Used Space</p>
-                    <h3 class="card-title">49/50
-                        <small>GB</small>
-                    </h3>
+                    <p class="card-category">Total Shards </p>
+                    <h3 class="card-title">3</h3><button (click)="test()"></button>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -23,10 +23,12 @@
             <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
-                        <i class="material-icons">store</i>
+                        <i class="material-icons">
+                            storage
+                        </i>
                     </div>
-                    <p class="card-category">Revenue</p>
-                    <h3 class="card-title">$34,245</h3>
+                    <p class="card-category">Indices</p>
+                    <h3 class="card-title">4</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -55,10 +57,12 @@
             <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                     <div class="card-icon">
-                        <i class="fa fa-twitter"></i>
+                        <i class="material-icons">
+                            save
+                        </i>
                     </div>
-                    <p class="card-category">Followers</p>
-                    <h3 class="card-title">+245</h3>
+                    <p class="card-category">Total Size</p>
+                    <h3 class="card-title">245<small>KB</small></h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -69,42 +73,37 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="card card-chart">
-                <div class="card-header card-header-success">
-                    <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Daily Sales</h4>
-                    <p class="card-category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today
-                        sales.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> updated 4 minutes ago
-                    </div>
-                </div>
+                <app-circular-progress-bar></app-circular-progress-bar>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                    <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Email Subscriptions</h4>
-                    <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> campaign sent 2 days ago
-                    </div>
-                </div>
+                <app-circular-progress-bar></app-circular-progress-bar>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <div class="card card-chart">
+                <app-circular-progress-bar></app-circular-progress-bar>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card card-chart">
+                <app-circular-progress-bar></app-circular-progress-bar>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card card-chart">
+                <app-circular-progress-bar></app-circular-progress-bar>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card card-chart">
+                <app-circular-progress-bar></app-circular-progress-bar>
+            </div>
+        </div>
+        <!-- <div class="col-md-2">
             <div class="card card-chart">
                 <div class="card-header card-header-danger">
                     <div class="ct-chart" id="completedTasksChart"></div>
@@ -119,7 +118,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-12">
