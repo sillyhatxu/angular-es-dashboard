@@ -105,8 +105,8 @@ export class HomeComponent implements OnInit {
       _that.indicesCount = 3
       _that.totalSizeCount = 2358
       _that.memPercentage = 10
-      _that.fsPercentage = 25
-      _that.fieldDataPercentage = 45
+      _that.fsPercentage = 20
+      _that.fieldDataPercentage = 50
       _that.queryCachePercentage = 80
       _that.updateTimeElasticsearch = Date.now()
     })
