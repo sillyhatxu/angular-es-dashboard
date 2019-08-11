@@ -11,49 +11,48 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item active  ">
-                <a class="nav-link" href="./home">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/home']" class="nav-link">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./user.html">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/indices']" class="nav-link">
                     <i class="material-icons">storage</i>
                     <p>Indices</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/query']" class="nav-link">
                     <i class="material-icons">search</i>
                     <p>Query</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./typography.html">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/tools']" class="nav-link">
                     <i class="material-icons">settings</i>
                     <p>Tools</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./icons.html">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/help']" class="nav-link">
                     <i class="material-icons">help</i>
                     <p>Help</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
+            <li class="nav-item" routerLinkActive="active">
+                <a [routerLink]="['/notifications']" class="nav-link">
                     <i class="material-icons">notifications</i>
                     <p>Notifications</p>
                 </a>
             </li>
-            <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
+            <li class="nav-item active-pro" routerLinkActive="active">
+                <a [routerLink]="['/upgrade']" class="nav-link">
                     <i class="material-icons">unarchive</i>
                     <p>Upgrade to PRO</p>
                 </a>
             </li>
-
         </ul>
     </div>
 </div>

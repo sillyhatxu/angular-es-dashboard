@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HomeDTO } from 'src/app/dto/HomeDTO';
 import { EsIndices } from 'src/app/dto/EsIndices';
 import { EsHealth } from 'src/app/dto/EsHealth';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -44,12 +45,12 @@ export class HomeComponent implements OnInit {
   public queryCachePercentage: number = 0
   public queryCacheName: string = "QueryCache"
 
-  constructor(private initialService: InitialService, private elasticsearchService: ElasticsearchService) {
+  constructor(private initialService: InitialService, private elasticsearchService: ElasticsearchService, private storageService: StorageService) {
     var _that = this
     this.initialService.initialData().subscribe(function (data) {
       environment.serverHost = data.data.server_host
-      environment.esScheme = data.data.scheme
       environment.esUrl = data.data.url
+      storageService.setItem("es_url", environment.esUrl)
       _that.esUrl = environment.esUrl
     })
   }

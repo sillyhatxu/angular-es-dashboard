@@ -14,6 +14,16 @@ import { FixedPluginComponent } from './components/fixed-plugin/fixed-plugin.com
 import { CircularProgressBarComponent } from './components/circular-progress-bar/circular-progress-bar.component';
 import { CustomPreloadingStrategyServiceService } from './services/custom-preloading-strategy-service.service';
 import { PreloadingComponent } from './components/preloading/preloading.component';
+import { IndicesComponent } from './components/indices/indices.component';
+import { QueryComponent } from './components/query/query.component';
+import { ToolsComponent } from './components/tools/tools.component';
+import { HelpComponent } from './components/help/help.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { UpgradeComponent } from './components/upgrade/upgrade.component';
+import { IndexComponent } from './components/index/index.component';
+import { TableTabComponent } from './components/table-tab/table-tab.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +35,15 @@ import { PreloadingComponent } from './components/preloading/preloading.componen
     HeadComponent,
     FixedPluginComponent,
     CircularProgressBarComponent,
-    PreloadingComponent
+    PreloadingComponent,
+    IndicesComponent,
+    QueryComponent,
+    ToolsComponent,
+    HelpComponent,
+    NotificationsComponent,
+    UpgradeComponent,
+    IndexComponent,
+    TableTabComponent
   ],
   imports: [
     HttpClientModule,

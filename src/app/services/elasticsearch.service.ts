@@ -7,6 +7,7 @@ import { EsVersion } from '../dto/EsVersion';
 import { EsHealth } from '../dto/EsHealth';
 import { ResponseDTO } from '../dto/ResponseDTO';
 import { EsPing } from '../dto/EsPing';
+import { MappingsDTO } from '../dto/EsMappings';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,11 @@ export class ElasticsearchService {
   indices(): Observable<ResponseDTO<any>> {
     const url = `${environment.apiUrl}/elasticsearch/indices`;
     return this.http.get<ResponseDTO<any>>(url)
+  }
+
+  mappings(): Observable<ResponseDTO<Array<MappingsDTO>>> {
+    const url = `${environment.apiUrl}/elasticsearch/mappings`;
+    return this.http.get<ResponseDTO<Array<MappingsDTO>>>(url)
   }
 
 

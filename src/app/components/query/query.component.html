@@ -1,0 +1,60 @@
+<app-header [esUrl]="esUrl" (toparent)=(connectSuccess())></app-header>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            <button type="submit" class="btn btn-primary pull-right">Execute</button>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputHead">Head</label>
+                                    <input id="inputHead" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="form-group">
+                                        <label for="inputState">Method</label>
+                                        <select id="inputState" class="form-control">
+                                            <option>GET</option>
+                                            <option>PUT</option>
+                                            <option>POST</option>
+                                            <option>DELETE</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Query Body</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="30"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Result</h4>
+                    </div>
+                    <div class="card-body">
+                        {{obj | json}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
