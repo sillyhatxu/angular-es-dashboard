@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { EsVersion } from '../dto/EsVersion';
+import { EsHealth } from '../dto/EsHealth';
+import { ResponseDTO } from '../dto/ResponseDTO';
+import { EsPing } from '../dto/EsPing';
 
 @Injectable({
   providedIn: 'root'
@@ -30,38 +34,66 @@ export class ElasticsearchService {
   //           .http
   //           .get(`${this.url}/characters`, {headers}); }
 
-  version(): Observable<EsVersion> {
-    const url = `${environment.apiUrl}/elasticsearch/version/${environment.esScheme}/${environment.esUrl}`;
-    return this.http.get<EsVersion>(url)
+
+  connect(esurl: string): Observable<ResponseDTO<EsPing>> {
+    // const url = `${environment.apiUrl}/elasticsearch/version/${environment.esScheme}/${environment.esUrl}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    }
+    const url = `${environment.apiUrl}/elasticsearch/connect`;
+    return this.http.post<any>(url, {
+      "es_url": esurl
+    }, httpOptions).pipe(catchError(this.handleError<EsPing[]>('connect', [])))
   }
 
-  health(): any {
-    const url = `${environment.apiUrl}/elasticsearch/health/${environment.esScheme}/${environment.esUrl}`;
-    this.http.get(url).subscribe(function (data: { data: any }) {
-      console.log(data)
-      return data
-    }, function (err) {
-      console.error(err);
-    })
+  version(): Observable<ResponseDTO<string>> {
+    const url = `${environment.apiUrl}/elasticsearch/version`;
+    return this.http.get<ResponseDTO<string>>(url)
+  }
+
+
+  health(): Observable<ResponseDTO<Array<EsHealth>>> {
+    const url = `${environment.apiUrl}/elasticsearch/health`;
+    return this.http.get<ResponseDTO<Array<EsHealth>>>(url)
   }
 
   clusterStats(): any {
-    const url = `${environment.apiUrl}/elasticsearch/cluster-stats/${environment.esScheme}/${environment.esUrl}`;
-    this.http.get(url).subscribe(function (data: { data: any }) {
-      console.log(data)
-      return data
-    }, function (err) {
-      console.error(err);
-    })
+    const url = `${environment.apiUrl}/elasticsearch/cluster-stats`;
+    return this.http.get<any>(url)
   }
 
-  indices(): any {
-    const url = `${environment.apiUrl}/elasticsearch/indices/${environment.esScheme}/${environment.esUrl}`;
-    this.http.get(url).subscribe(function (data: { data: any }) {
-      console.log(data)
-      return data
-    }, function (err) {
-      console.error(err);
-    })
+  indices(): Observable<ResponseDTO<any>> {
+    const url = `${environment.apiUrl}/elasticsearch/indices`;
+    return this.http.get<ResponseDTO<any>>(url)
+  }
+
+
+  /**
+ * Handle Http operation that failed.
+ * Let the app continue.
+ * @param operation - name of the operation that failed
+ * @param result - optional value to return as the observable result
+ */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    console.log(message)
+    // this.messageService.add(`HeroService: ${message}`);
   }
 }

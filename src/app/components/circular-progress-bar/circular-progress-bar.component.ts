@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-circular-progress-bar',
@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CircularProgressBarComponent implements OnInit {
 
-  constructor() { }
+  @Input() percentage: number = 0
+  @Input() name: string = ""
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }

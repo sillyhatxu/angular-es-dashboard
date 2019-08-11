@@ -7,8 +7,8 @@
                 <div class="input-group no-border">
                     <!-- <input type="text" [(ngModel)]="xxxxxxxxxxx" name="ttttt" /> -->
                     <!-- <input type="text" class="form-control" placeholder="127.0.0.1:9200">{{xxxxxxxxxxx}} -->
-                    <input type="text" name="esUrl" class="form-control" placeholder="127.0.0.1:9200" value="{{esUrl}}"
-                        [(ngModel)]="esUrl">
+                    <input type="text" name="esUrl" class="form-control" placeholder="http://127.0.0.1:9200"
+                        value="{{esUrl}}" [(ngModel)]="esUrl">
                     <button class="btn btn-primary btn-sm btn-round" (click)="connectES()">
                         <i class="material-icons">cached</i> CONNECT
                     </button>
@@ -21,8 +21,16 @@
         </div>
         <div class="navbar-wrapper">
             <div class="input-group no-border">
-                <p class="text-success" *ngIf="status">Connected</p>
-                <p class="text-warning" *ngIf="!status">Not Connected</p>
+                <span class="navbar-toggler-icon icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-wrapper">
+            <div class="input-group no-border">
+                <div class="text-success" [hidden]="!status">Connected</div>
+                <div class="text-warning" [hidden]="status">Not Connected</div>
+                <!-- <button (click)="status=!status">test</button> -->
+                <!-- <p class="text-success" *ngIf="status">Connected</p> -->
+                <!-- <p class="text-warning" *ngIf="status">Not Connected</p> -->
             </div>
         </div>
         <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"

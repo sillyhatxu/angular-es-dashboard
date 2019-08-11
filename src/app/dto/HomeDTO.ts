@@ -1,4 +1,5 @@
-export class EsHealth {
+export class HomeDTO {
+    version: string;
     epoch: string;
     timestamp: string;
     cluster: string;
